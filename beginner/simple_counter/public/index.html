@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple counter</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+<div class="central vertically-stack">
+    <h1 class="">Simple counter</h1>
+    <p class="horizontally-centralize display"><span id="currentValue">0</span></p>
+    <div class="horizontally-centralize margin_top_bottom-10px">
+        <button onclick="processIncreaseByOne()">Increment</button>
+        <button onclick="processReduceByOne()">Decrement</button>
+    </div>
+    <div class="vertically-stack">
+        <p class="margin_top_bottom-5px">Clicks on Increment <span id="incrementClicks"></span></p>
+        <p class="margin_top_bottom-5px">Clicks on Decrement <span id="decrementClicks"></span></p>
+    </div>
+</div>
+<script type="text/javascript">
+    const module = {};
+    const currentValueSpanId = "currentValue";
+    const incrementClicksId = "incrementClicks";
+    const decrementClicksId = "decrementClicks";
+    const processIncreaseByOne = () => {
+        module.increaseByOne(currentValueSpanId);
+        module.increaseClickCountByOne(incrementClicksId);
+    }
+    const processReduceByOne = () => {
+        module.reduceByOne(currentValueSpanId);
+        module.increaseClickCountByOne(decrementClicksId);
+    }
+</script>
+<script type="module">
+    import {increaseByOne, reduceByOne, increaseClickCountByOne} from './script/app.js';
+
+    module.increaseByOne = increaseByOne;
+    module.reduceByOne = reduceByOne;
+    module.increaseClickCountByOne = increaseClickCountByOne;
+</script>
+
+</body>
+</html>
