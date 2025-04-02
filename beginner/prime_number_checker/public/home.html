@@ -10,10 +10,37 @@
     <h1>Prime number checker</h1>
     <div>
         <input type="number" name="numberInput" id="numberInput">
-        <button onclick="checkNumber()">Check</button>
+        <button onclick="processPrime(inputId, resultId)">Check</button>
         <p class="result-display" id="result">I am result</p>
     </div>
 </div>
+<script type="text/javascript">
+    const inputId = "numberInput";
+    const resultId = "result";
+    const module = {};
+  
+
+    const processPrime = (inputItemId, resultItemId) => {
+        const numberInput = document.getElementById(inputId);
+        const resultItem = document.getElementById(resultId);
+
+        const value = numberInput.value;
+
+        if (module.isValuePrime(value)) {
+            resultItem.classList.remove("result-is-prime", "result-is-not-prime");
+            resultItem.textContent = `The number ${value} is prime!`;
+            resultItem.classList.add("result-is-prime");
+        } else {
+            resultItem.classList.remove("result-is-prime", "result-is-not-prime");
+            resultItem.textContent = `The number ${value} is not prime!`;
+            resultItem.classList.add("result-is-not-prime");
+        }
+    }
+</script>
+<script type="module">
+    import {isValuePrime} from "./script";
+    module.isValuePrime = isValuePrime;
+</script>
 </body>
 
 </html>
