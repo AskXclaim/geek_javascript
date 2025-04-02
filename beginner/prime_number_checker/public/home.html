@@ -9,24 +9,38 @@
 <div class="container_center">
     <h1>Prime number checker</h1>
     <div>
+        <div>
+            Solution type:
+            <input type="radio" name="solution_type" id="simple_solution_type" value="simple_solution">
+            <label for="simple_solution_type">Simple</label>
+            <input type="radio" name="solution_type" id="efficient_solution_type" value="efficient_solution">
+            <label for="efficient_solution_type">Efficient</label>
+        </div>
         <input type="number" name="numberInput" id="numberInput">
-        <button onclick="processPrime(inputId, resultId)">Check</button>
+        <button onclick="processPrime(inputId, resultId,solutionTypeName)">Check</button>
         <p class="result-display" id="result">I am result</p>
     </div>
 </div>
 <script type="text/javascript">
     const inputId = "numberInput";
     const resultId = "result";
+    const simpleSolutionTypeId = "simple_solution_type";
+    const solutionTypeName = "solution_type";
     const module = {};
-  
 
-    const processPrime = (inputItemId, resultItemId) => {
+    window.addEventListener("DOMContentLoaded", (event) => {
+        setRadioButton(simpleSolutionTypeId);
+    });
+    const setRadioButton = (radioId) =>
+        document.getElementById(radioId).checked = true;
+
+    const processPrime = (inputItemId, resultItemId, solutionTypeName) => {
         const numberInput = document.getElementById(inputId);
         const resultItem = document.getElementById(resultId);
-
+        const solutionType = getSolutionType(solutionTypeName);
         const value = numberInput.value;
 
-        if (module.isValuePrime(value)) {
+        if (module.isValuePrime(value, solutionType)) {
             resultItem.classList.remove("result-is-prime", "result-is-not-prime");
             resultItem.textContent = `The number ${value} is prime!`;
             resultItem.classList.add("result-is-prime");
@@ -36,10 +50,21 @@
             resultItem.classList.add("result-is-not-prime");
         }
     }
+    const getSolutionType = (solutionTypeName) => {
+        const selectedSolutionType = document.querySelector(`input[name=${solutionTypeName}]:checked`).value;
+        console.log(selectedSolutionType);
+        if (selectedSolutionType.toLowerCase().includes("simple")) {
+            return module.SolutionType.simple
+        }
+        return module.SolutionType.efficient;
+    }
 </script>
 <script type="module">
+    import SolutionType from "./script/enums/SolutionTypes.js";
     import {isValuePrime} from "./script";
+    
     module.isValuePrime = isValuePrime;
+    module.SolutionType = SolutionType;
 </script>
 </body>
 
