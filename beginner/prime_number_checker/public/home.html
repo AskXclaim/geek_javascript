@@ -16,9 +16,10 @@
             <input type="radio" name="solution_type" id="efficient_solution_type" value="efficient_solution">
             <label for="efficient_solution_type">Efficient</label>
         </div>
+        <label for="numberInput">Enter number:</label>
         <input type="number" name="numberInput" id="numberInput">
         <button onclick="processPrime(inputId, resultId,solutionTypeName)">Check</button>
-        <p class="result-display" id="result">I am result</p>
+        <p class="result-display" id="result"></p>
     </div>
 </div>
 <script type="text/javascript">
@@ -38,15 +39,21 @@
         const numberInput = document.getElementById(inputId);
         const resultItem = document.getElementById(resultId);
         const solutionType = getSolutionType(solutionTypeName);
-        const value = numberInput.value;
+        const numberInputValue = numberInput.value;
 
-        if (module.isValuePrime(value, solutionType)) {
+        if (numberInputValue.length === 0) {
+            window.alert("Please enter a valid number");
+            resultItem.textContent = "";
+            return;
+        }
+
+        if (module.isValuePrime(numberInputValue, solutionType)) {
             resultItem.classList.remove("result-is-prime", "result-is-not-prime");
-            resultItem.textContent = `The number ${value} is prime!`;
+            resultItem.textContent = `The number ${numberInputValue} is prime!`;
             resultItem.classList.add("result-is-prime");
         } else {
             resultItem.classList.remove("result-is-prime", "result-is-not-prime");
-            resultItem.textContent = `The number ${value} is not prime!`;
+            resultItem.textContent = `The number ${numberInputValue} is not prime!`;
             resultItem.classList.add("result-is-not-prime");
         }
     }
@@ -62,7 +69,7 @@
 <script type="module">
     import SolutionType from "./script/enums/SolutionTypes.js";
     import {isValuePrime} from "./script";
-    
+
     module.isValuePrime = isValuePrime;
     module.SolutionType = SolutionType;
 </script>

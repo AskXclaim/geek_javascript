@@ -1,7 +1,5 @@
 import SolutionType from "./enums/SolutionTypes.js";
 
-console.log("welcome");
-
 const isNumber = (value: string) =>
     !Number.isNaN(parseInt(value))
 
@@ -29,7 +27,7 @@ const efficientIsNumberPrime = (value: number) => {
     if (value % 2 == 0) {
         return false;
     }
-  
+
     for (let i = 3; i * i <= value; i += 2) {
         if (value % i === 0) {
             return false;
