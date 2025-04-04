@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Hide Password</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+<div class="flex_column_container">
+    <h1>Show Hide Password</h1>
+    <div class="flex_row_container">
+        <label for="password">Password:</label>
+        <div id="password_container" class="password_container" tabindex="-1">
+            <input type="password" id="password" name="password" 
+                   placeholder="your password" maxlength="16" autocomplete="off">
+            <i id="password_icon" class="password-icon">&#128064;</i>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    const module = {};
+    window.addEventListener("DOMContentLoaded", () => {
+        module.addListeners();
+    })
+</script>
+<script type="module" >
+    import {addListeners} from "./scripts/index.js";
+    module.addListeners = addListeners;
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "show_hide_password",
+  "version": "1.0.0",
+  "description": "Demonstrated password show and hide functionality",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "transpil-sass": "npx sass ./src/styles/main.scss ./public/styles/main.css",
+    "build": "echo 'building...' && npm run transpil-sass && npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "password",
+    "functionality"
+  ],
+  "author": "Kola",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.86.3",
+    "typescript": "^5.8.2"
+  }
+}
