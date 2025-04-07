@@ -1,30 +1,53 @@
-console.info("Show Hide Password");
+const inputElementValue = [];
+const inputElementMaskedValue = [];
+let currentPosition = 0;
 const addListeners = () => {
-    console.info("I am in window.addEventListener");
     const passwordContainerId = "password_container";
-    const passwordContainerElement = document.getElementById(passwordContainerId);
+    const textPasswordContainerId = "text_password_container";
     const passwordId = "password";
-    const passwordInputElement = document.getElementById(passwordId);
+    const textPasswordId = "text_password";
     const iconId = "password_icon";
+    const textIconId = "text_password_icon";
+    const passwordContainerElement = document.getElementById(passwordContainerId);
+    const textPasswordContainerElement = document.getElementById(textPasswordContainerId);
+    const passwordInputElement = document.getElementById(passwordId);
+    const textPasswordInputElement = document.getElementById(textPasswordId);
     const iconElement = document.getElementById(iconId);
+    const textIconElement = document.getElementById(textIconId);
     setupEventListener(passwordInputElement, passwordContainerElement, iconElement);
+    setupEventListener(textPasswordInputElement, textPasswordContainerElement, textIconElement);
 };
-const setupEventListener = (passwordInputElement, passwordContainerElement, iconElement) => {
-    passwordInputElement?.addEventListener("focusin", () => {
-        passwordContainerElement?.classList.add("password_container_highlight");
+const setupEventListener = (inputElement, containerElement, iconElement) => {
+    inputElement?.addEventListener("focusin", () => {
+        containerElement?.classList.add("password_container_highlight");
     });
-    passwordInputElement?.addEventListener("focusout", () => {
-        passwordContainerElement?.classList.remove("password_container_highlight");
+    inputElement?.addEventListener("focusout", () => {
+        containerElement?.classList.remove("password_container_highlight");
     });
     iconElement?.addEventListener("mousedown", () => {
         iconElement.innerHTML = "&#128584;";
-        passwordInputElement.type = "text";
+        inputElement.value = inputElementValue.join("");
     });
     iconElement?.addEventListener("mouseup", () => {
         iconElement.innerHTML = "&#128064;";
-        passwordInputElement.type = "password";
+        inputElement.value = inputElementMaskedValue.join("");
     });
-};
-const onPasswordIconClick = (iconElementId) => {
+    if (inputElement.type === "text") {
+        inputElement.addEventListener("input", (event) => {
+            const inputEvent = event;
+            let valueLength = inputElement.value.length;
+            if (inputEvent?.data) {
+                inputElementValue.push(inputEvent.data);
+                inputElementMaskedValue.push("*");
+                currentPosition++;
+                inputElement.value = inputElementMaskedValue.join("");
+            }
+            if (inputEvent && inputEvent.data === null && inputEvent.target && valueLength < currentPosition) {
+                inputElementValue.pop();
+                inputElementMaskedValue?.pop();
+                --currentPosition;
+            }
+        });
+    }
 };
 export { addListeners };
