@@ -1,0 +1,21 @@
+{
+  "name": "palindrome_checker",
+  "version": "1.0.0",
+  "description": "Palindrome checker",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "transpil-sass": "echo 'transpiling scss file to css...' && npx sass ./src/styles/main.scss ./public/styles/main.css",
+    "build": "echo 'building...' && npm run transpil-sass && npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "palindrome"
+  ],
+  "author": "kola",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.86.3",
+    "typescript": "^5.8.3"
+  }
+}
