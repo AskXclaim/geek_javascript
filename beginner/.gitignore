@@ -5,7 +5,8 @@ project.lock.json
 .DS_Store
 *.pyc
 nupkg/
-
+# local files/folders
+  
 # Visual Studio Code
 .vscode
 
@@ -1215,3 +1216,7 @@ Temporary Items
 
 # Android studio 3.1+ serialized cache file
 
+/palindrome_checker/public/scripts/
+/palindrome_checker/public/app.d.ts
+/palindrome_checker/public/app.js
+!/palindrome_checker/public/styles/main.css.map

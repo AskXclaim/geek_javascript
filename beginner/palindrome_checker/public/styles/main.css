@@ -11,7 +11,7 @@
   margin: 5px 0;
 }
 
-.font-size-medium {
+.font-size-x-large {
   font-size: x-large;
 }
 
@@ -26,6 +26,14 @@
 
 .main_input:focus {
   outline: 1px solid slategray;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
 
 button {
@@ -44,6 +52,11 @@ button {
 button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: rgba(0, 123, 255, 0.3);
 }
 
 p {

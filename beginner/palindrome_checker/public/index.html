@@ -13,8 +13,31 @@
     </p>
     <input id="palindromeInput" type="text" class="main_input"
            placeholder="Enter a word or phrase"/>
-    <button id="check">Check</button>
-    <p class="margin-5px-0 font-size-medium">I'm a message</p>
+    <button type="button" id="check">Check</button>
+    <p id="result" class="margin-5px-0 font-size-medium"></p>
 </div>
+<script type="text/javascript">
+    const module = {};
+    window.addEventListener('load', () => {
+        const palindromeInput = document.getElementById("palindromeInput");
+        const checkButton = document.getElementById("check");
+        checkButton.disabled = true;
+        const resultId = "result";
+
+        checkButton.addEventListener('click', () => {
+            module.buttonClickEvent(palindromeInput.id, resultId);
+        });
+
+        palindromeInput.addEventListener('input', (event) => {
+            module.inputInputEvent(event, checkButton.id, resultId);
+        });
+    });
+</script>
+<script type="module">
+    import {buttonClickEvent, inputInputEvent} from "./scripts/EventListners.js";
+
+    module.buttonClickEvent = buttonClickEvent;
+    module.inputInputEvent = inputInputEvent;
+</script>
 </body>
 </html>

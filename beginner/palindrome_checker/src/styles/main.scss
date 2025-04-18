@@ -11,7 +11,7 @@
   margin: 5px 0;
 }
 
-.font-size-medium {
+.font-size-x-large {
   font-size: x-large;
 }
 
@@ -27,7 +27,16 @@
 .main_input:focus {
   outline: 1px solid slategray;
 }
-button{
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+button {
   cursor: pointer;
   border: none;
   min-width: 50%;
@@ -39,11 +48,18 @@ button{
   color: #edf5fb;
   background-color: #007BFF;
 }
+
 button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
 }
-p{
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: rgba(0, 123, 255, 0.3);
+}
+
+p {
   letter-spacing: 1px;
   word-spacing: 2px;
 }
