@@ -1,0 +1,17 @@
+{
+  "name": "carousel",
+  "version": "1.0.0",
+  "description": "A vanilla javascript based carousel",
+  "main": "./scripts/index.js",
+  "type": "module",
+  "scripts": {
+    "transpil-sass": "echo 'transpiling scss file to css...' && npx sass ./src/styles/main.scss ./public/styles/main.css",
+    "build": "echo 'Build started...' && npm run transpil-sass && npx tsc && echo 'Build complete'"
+  },
+  "author": "Kola",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.87.0",
+    "typescript": "^5.8.3"
+  }
+}
