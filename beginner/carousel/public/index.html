@@ -8,16 +8,34 @@
 </head>
 <body>
 <div class="container">
-    <div class="carousel">
-        <button class="carousel-button"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="carousel-button"><i class="fa-solid fa-chevron-right"></i></button>
+    <div id="carousel" class="carousel">
+        <button id="leftCarouselBtn" class="carousel-button"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="rightCarouselBtn" class="carousel-button"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 </div>
 <script type="text/javascript">
-    
+    const module = {};
+    window.addEventListener("load", () => {
+        const carouselElement = document.getElementById("carousel");
+        const leftCarouselBtn = document.getElementById("leftCarouselBtn");
+        const rightCarouselBtn = document.getElementById("rightCarouselBtn");
+
+        leftCarouselBtn.addEventListener("click", () => {
+            module.moveCarouselLeft(carouselElement.id)
+        });
+        rightCarouselBtn.addEventListener("click", () => {
+            module.moveCarouselRight(carouselElement.id)
+        });
+        module.setCarouselImage(carouselElement.id);
+
+    });
 </script>
 <script type="module">
-    
+    import {setCarouselImage, moveCarouselRight, moveCarouselLeft} from "./scripts/index.js";
+
+    module.setCarouselImage = setCarouselImage;
+    module.moveCarouselRight = moveCarouselRight;
+    module.moveCarouselLeft = moveCarouselLeft;
 </script>
 </body>
 </html>
