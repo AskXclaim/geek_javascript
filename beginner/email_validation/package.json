@@ -1,0 +1,21 @@
+{
+  "name": "email_validation",
+  "version": "1.0.0",
+  "description": "Email validation using regular expression",
+  "main": "./scripts/index.js",
+  "type": "module",
+  "scripts": {
+    "transpil-sass": "echo 'transpiling sass to css..' && npx sass ./src/styles/main.scss ./public/styles/main.css",
+    "build": "echo 'Building ...' && npm run transpil-sass && npx tsc && echo 'Building completed'"
+  },
+  "keywords": [
+    "email",
+    "validation"
+  ],
+  "author": "Kola",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.87.0",
+    "typescript": "^5.8.3"
+  }
+}
