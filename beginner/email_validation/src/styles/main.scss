@@ -42,7 +42,19 @@ button {
   font-size: large;
   padding: 5px;
 }
-
+button:disabled {
+  cursor: not-allowed;
+  background-color: #495e49;
+}
+button[disabled]:hover {
+  transform: none;
+}
 button:hover {
   transform: scale(1.01);
+}
+.valid{
+  color: green;
+}
+.invalid{
+  color: red;
 }

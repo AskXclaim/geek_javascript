@@ -10,13 +10,48 @@
     <label for="email">Enter your email:</label>
     <input type="email" id="email" placeholder="email@domain.com"/>
     <button id="validate">Validate</button>
+    <p id="message"></p>
 </div>
 <script type="text/javascript">
     const module = {};
+    window.addEventListener('load', (event) => {
+        const messageParagraph = document.getElementById('message');
+        const emailInput = document.getElementById('email');
+        const button = document.getElementById('validate');
+        module.setButtonState(button, emailInput.value);
 
+        emailInput.addEventListener('input', (event) => {
+            const email = event.target.value;
+            module.displayMessage(false, "", messageParagraph);
+            module.setButtonState(button, email);
+        });
+        button.addEventListener('click', (event) => {
+            const email = emailInput.value;
+            if (module.isEmailValid(email)) {
+                module.displayMessage(false, `'${email}' is a valid email format`, messageParagraph);
+            } else {
+                module.displayMessage(true, `'${email}' is an invalid email format`, messageParagraph);
+            }
+        });
+    });
 </script>
 <script type="module">
+    import {shouldEnableButton, disableEnableButton, isEmailValid, displayMessage} from "./scripts/index.js";
 
+    module.shouldEnableButton = shouldEnableButton;
+    module.disableEnableButton = disableEnableButton;
+    module.isEmailValid = isEmailValid;
+    module.displayMessage = displayMessage;
+
+    const setButtonState = (button, email) => {
+        if (Boolean(module.shouldEnableButton(email)) === false) {
+            module.disableEnableButton(button.id, true);
+        } else {
+            module.disableEnableButton(button.id, false);
+        }
+    }
+
+    module.setButtonState = setButtonState;
 </script>
 </body>
 </html>
