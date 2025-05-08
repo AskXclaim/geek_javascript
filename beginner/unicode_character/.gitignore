@@ -1220,3 +1220,6 @@ Temporary Items
 /palindrome_checker/public/app.d.ts
 /palindrome_checker/public/app.js
 !/palindrome_checker/public/styles/main.css.map
+!/public/styles/main.css.map
+!/public/styles/main.css.map
+!/public/scripts/index.d.ts
