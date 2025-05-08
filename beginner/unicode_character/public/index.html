@@ -13,16 +13,34 @@
     <div class="content-container">
         <h1>Unicode Character Value Finder</h1>
         <label for="input" class="font-size-medium">Enter a character:</label>
-        <input id="input" class="input-style" type="text" placeholder="e.g. A or 😁">
+        <input id="input" class="input-style" type="text" placeholder="e.g. A or 😁" maxlength="2">
         <button id="getUnicodeValueBtn" class="button-style">Get Unicode Value</button>
-        <p id="unicodeValue" class="font-size-large">Unicode value is</p>
+        <p id="uniCodeValue" class="font-size-large"></p>
     </div>
 </div>
 <script type="text/javascript">
     const module = {};
+    window.addEventListener('load', async () => {
+        const inputElement = document.getElementById('input');
+        const getUnicodeValueBtn = document.getElementById('getUnicodeValueBtn');
+        const uniCodeValueElement = document.getElementById('uniCodeValue');
+        getUnicodeValueBtn.disabled = true;
+        inputElement.addEventListener('input', async (event) => {
+            uniCodeValueElement.innerText = "";
+            getUnicodeValueBtn.disabled = module.isValueEmpty(event.target.value);
+        });
+        getUnicodeValueBtn.addEventListener('click', async () => {
+            const uniCodes = module.getUnicodeValue(inputElement.value);
+            module.displayResult(uniCodes, uniCodeValueElement.id);
+        })
+    })
 </script>
-<script>
+<script type="module">
+    import {isValueEmpty, getUnicodeValue, displayResult} from "./scripts/index.js";
 
+    module.isValueEmpty = isValueEmpty;
+    module.getUnicodeValue = getUnicodeValue;
+    module.displayResult = displayResult;
 </script>
 </body>
 </html>

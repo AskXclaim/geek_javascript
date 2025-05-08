@@ -55,6 +55,11 @@ body, html {
   transform: scale(1.05);
   background-color: #1b5bbf;
 }
+.button-style:disabled {
+  cursor: not-allowed;
+  transform: none;
+  background-color: #72a0ed;
+}
 
 label, input[type=text], button {
   margin-top: 5px;
