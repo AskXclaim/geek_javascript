@@ -1,0 +1,55 @@
+.container {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  width: 30%;
+}
+.submit-button:disabled {
+  background-color: #85a887;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reset-button {
+  background-color: #af113a;
+  width: 13%;
+}
+.reset-button:disabled {
+  background-color: #85a887;
+  cursor: not-allowed;
+}
+
+label {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input[type=number] {
+  font-size: medium;
+  min-width: 50%;
+  min-height: 30px;
+  padding: 5px;
+  margin: 5px;
+}
+
+button {
+  border-radius: 10px;
+  color: white;
+  font-size: medium;
+  min-height: 40px;
+  cursor: pointer;
+  border: none;
+  margin: 10px 1px;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=main.css.map */

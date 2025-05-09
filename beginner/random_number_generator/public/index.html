@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number Generator</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+<div class="container">
+    <h1>Random Number Generator</h1>
+    <div>
+        <label for="minNumber">Minimum:
+            <input id="minNumber" type="number" placeholder="Enter a number"/>
+        </label>
+    </div>
+    <div>
+        <label for="maxNumber">Maximum:
+            <input id="maxNumber" type="number" placeholder="Enter a number"/>
+        </label>
+    </div>
+    <em>Nb: Max number has to be greater or equal to min number</em>
+    <button id="generateButton" class="submit-button">Generate Random Number</button>
+    <h2 id="message">Click the button to generate</h2>
+    <button id="reset" class="reset-button">Reset</button>
+</div>
+<script type="text/javascript">
+    const module = {};
+    window.addEventListener("load", async () => {
+        const elementsIds = {
+            inputOneId: "minNumber",
+            inputTwoId: "maxNumber",
+            messageElementId: "message",
+            generateRandomNumberButtonId: "generateButton",
+        };
+        const inputMinNumber = document.getElementById(elementsIds.inputOneId);
+        const inputMaxNumber = document.getElementById(elementsIds.inputTwoId);
+        const generateButton = document.getElementById(elementsIds.generateRandomNumberButtonId);
+        const resetButton = document.getElementById("reset");
+        const messageElement = document.getElementById(elementsIds.messageElementId);
+        const mainDiv = document.querySelector(".container");
+        generateButton.disabled = true;
+
+        mainDiv.addEventListener("input", async (event) => {
+            if (event.target.tagName === "INPUT") {
+                messageElement.innerText = "";
+                generateButton.disabled = !module.areInputsValid(inputMinNumber.id, inputMaxNumber.id);
+            }
+        });
+        generateButton.addEventListener("click", async (event) => {
+            const randomNumber = module.generateRandomNumber(parseFloat(inputMinNumber.value), parseFloat(inputMaxNumber.value));
+            module.displayMessage(randomNumber, messageElement.id);
+        })
+        resetButton.addEventListener("click", async (event) => {
+            module.reset(elementsIds);
+        });
+    });
+</script>
+<script type="module">
+    import {areInputsValid, generateRandomNumber, displayMessage, reset} from "./scripts/index.js";
+
+    // module.ElementsIds = ElementsIds;
+    module.areInputsValid = areInputsValid;
+    module.generateRandomNumber = generateRandomNumber;
+    module.displayMessage = displayMessage;
+    module.reset = reset;
+</script>
+</body>
+</html>

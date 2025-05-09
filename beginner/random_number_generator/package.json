@@ -1,0 +1,20 @@
+{
+  "name": "random_number_generator",
+  "version": "1.0.0",
+  "description": "random number generator",
+  "main": "./public/scripts/index.js",
+  "scripts": {
+    "transpil-sass": "echo '...transpiling scss' && npx sass ./src/styles/main.scss ./public/styles/main.css",
+    "build": "echo '...Building started' && npm run transpil-sass && npx tsc "
+  },
+  "keywords": [
+    "number",
+    "generator"
+  ],
+  "author": "Kola",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.87.0",
+    "typescript": "^5.8.3"
+  }
+}
