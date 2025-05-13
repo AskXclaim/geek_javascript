@@ -1,0 +1,22 @@
+{
+  "name": "random_password_generator",
+  "version": "1.0.0",
+  "description": "a simple random password generator",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "transpille-sass": "echo 'transpilling scss to css...' && npx sass ./src/styles/main.scss ./public/styles/main.css",
+    "build": "echo 'Build started ...' && npm run transpille-sass && npx tsc && echo 'Build completed'"
+  },
+  "keywords": [
+    "random",
+    "password",
+    "generator"
+  ],
+  "author": "Kola",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.88.0",
+    "typescript": "^5.8.3"
+  }
+}

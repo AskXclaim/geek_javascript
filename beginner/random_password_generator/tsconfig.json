@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "target": "ES2020",
+    "rootDir": "./src",
+    "outDir": "./public/"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

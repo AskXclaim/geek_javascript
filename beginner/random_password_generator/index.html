@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random password generator</title>
+    <link rel="stylesheet" href="./public/styles/main.css">
+</head>
+<body>
+<div class="main-container">
+    <div class="container">
+        <h1>Random password generator</h1>
+        <div class="flex-column-container">
+            <div class="password-amount-container">
+                <label for="passwordLength" class="margin-2px">Password length:</label>
+                <input id="passwordLength" class="margin-2px" type="number" min="8" max="16" value="8"/>
+                <span id="errorAsterisk" class="margin-2px color-red display-none"> </span>
+            </div>
+            <div class="error-container display-none" id="errorMessage"></div>
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" name="includeUppercase" id="includeUppercase">
+            <label for="includeUppercase">Include Uppercase</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" name="includeNumbers" id="includeNumbers">
+            <label for="includeNumbers">Include Numbers</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" name="includeSpecialCharacters" id="includeSpecialCharacters">
+            <label for="includeSpecialCharacters">Include Uppercase</label>
+        </div>
+        <div>
+            <button id="generatePasswordBtn">Generate password</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+        <div class="password-container">
+            Your password will appear here
+        </div>
+    </div>
+</div>
+<script type="module"  src="./public/scripts/index.js"></script>
+</body>
+</html>
