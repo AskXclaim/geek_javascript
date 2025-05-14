@@ -32,15 +32,19 @@
 .color-red {
   color: #FF0000FF;
 }
+
 .display-none {
   visibility: hidden;
 }
+
 .display-inline {
   display: inline;
 }
+
 .display-block {
-  display:block;
+  display: block;
 }
+
 .error-container {
   @extend .color-red;
   max-width: 396px;
@@ -87,11 +91,17 @@ button {
   }
 }
 
+body {
+  min-width: 210px;
+  min-height: 300px;
+}
+
 input[type=number] {
   max-width: 50%;
   min-width: 40px;
   text-align: center;
 }
-span{
+
+span {
   min-width: 8px;
 }

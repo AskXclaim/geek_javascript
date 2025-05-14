@@ -17,28 +17,31 @@
             </div>
             <div class="error-container display-none" id="errorMessage"></div>
         </div>
+        <div>
 
-        <div class="checkbox-container">
-            <input type="checkbox" name="includeUppercase" id="includeUppercase">
-            <label for="includeUppercase">Include Uppercase</label>
-        </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="includeNumbers" id="includeNumbers">
-            <label for="includeNumbers">Include Numbers</label>
-        </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="includeSpecialCharacters" id="includeSpecialCharacters">
-            <label for="includeSpecialCharacters">Include Uppercase</label>
+
+            <div class="checkbox-container">
+                <input type="checkbox" name="includeUppercase" id="includeUppercase">
+                <label for="includeUppercase">Include Uppercase</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="includeNumbers" id="includeNumbers">
+                <label for="includeNumbers">Include Numbers</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="includeSpecialCharacters" id="includeSpecialCharacters">
+                <label for="includeSpecialCharacters">Include Special Characters</label>
+            </div>
         </div>
         <div>
             <button id="generatePasswordBtn">Generate password</button>
             <button id="resetBtn">Reset</button>
         </div>
-        <div class="password-container">
+        <div class="password-container" id="passwordContainer">
             Your password will appear here
         </div>
     </div>
 </div>
-<script type="module"  src="./public/scripts/index.js"></script>
+<script type="module" src="./public/scripts/index.js"></script>
 </body>
 </html>

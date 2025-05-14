@@ -85,6 +85,11 @@ button:disabled {
   cursor: not-allowed;
 }
 
+body {
+  min-width: 210px;
+  min-height: 300px;
+}
+
 input[type=number] {
   max-width: 50%;
   min-width: 40px;
