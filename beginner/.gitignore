@@ -1221,3 +1221,4 @@ Temporary Items
 /palindrome_checker/public/app.js
 !/palindrome_checker/public/styles/main.css.map
 !/random_password_generator/public/scripts/
+!/.idea/
