@@ -1,6 +1,7 @@
 # Description:
 
 A collection of projects using Typescript/Javascript.
+Please check the individual projects to find out more about them.
 
 ### <ins>Beginner projects:</ins>
 
